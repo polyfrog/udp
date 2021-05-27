@@ -12,7 +12,7 @@ def main():
         data, addr = sock.recvfrom(1024)
         data = data.decode('utf-8')
         if data == 'date':
-            message = bytes(f'{str(date.today().day // 10)}{str(date.today().day % 10)}.{str(date.today().month // 10)}{str(date.today().month % 10)}.{str(date.today().year)}', 'utf-8')
+            message = bytes(f'{str(datetime.now().day // 10)}{str(datetime.now().day % 10)}.{str(datetime.now().month // 10)}{str(datetime.now().month % 10)}.{str(datetime.now().year)}', 'utf-8')
         elif data == 'time':
             message = bytes(f'{str(datetime.now().hour // 10)}{str(datetime.now().hour % 10)}' + ':' +
                             f'{str(datetime.now().minute // 10)}{str(datetime.now().minute % 10)}' + ':' +
@@ -20,7 +20,7 @@ def main():
                             f'{str(datetime.now().microsecond)[:3]}',
                             'utf-8')
         elif data == 'datetime':
-            message = bytes(f'{str(date.today().day // 10)}{str(date.today().day % 10)}.{str(date.today().month // 10)}{str(date.today().month % 10)}.{str(date.today().year)}' + ' ' +
+            message = bytes(f'{str(datetime.now().day // 10)}{str(datetime.now().day % 10)}.{str(datetime.now().month // 10)}{str(datetime.now().month % 10)}.{str(datetime.now().year)}' + ' ' +
                             f'{str(datetime.now().hour // 10)}{str(datetime.now().hour % 10)}' + ':' +
                             f'{str(datetime.now().minute // 10)}{str(datetime.now().minute % 10)}' + ':' +
                             f'{str(datetime.now().second // 10)}{str(datetime.now().second % 10)}' + '.' +
