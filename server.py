@@ -26,11 +26,11 @@ def main():
                             f'{str(datetime.now().second // 10)}{str(datetime.now().second % 10)}' + '.' +
                             f'{str(datetime.now().microsecond)[:3]}',
                             'utf-8')
-        if not data:
-            break
         else:
             message = bytes('Specified command is not supported', 'utf-8')
         sock.sendto(message, addr)
+        if not data:
+            break
     sock.close()
 
 if __name__ == '__main__':
